@@ -1,0 +1,172 @@
+<?php
+// contact.php - Enhanced Contact Page with consistent header, cart, and improved styling
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Hardware Haven</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo-section">
+                    <h1 class="logo">Hardware Haven</h1>
+                    <span class="tagline">Tools for Every Project</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.php"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li><a href="products.php"><i class="fas fa-tools"></i> Products</a></li>
+                    <li><a href="contact.php"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <div class="search-bar">
+                        <input type="text" id="search-input" placeholder="Search products...">
+                        <button><i class="fas fa-search"></i></button> <!-- No inline onclick -->
+                    </div>
+                    <a href="#" class="cart-icon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="contact">
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h2>Get in Touch</h2>
+                <p>We're here to help with any questions or inquiries. Reach out today!</p>
+                <div class="hero-buttons">
+                    <a href="#contact-form" class="cta-button primary">Send Message</a>
+                    <a href="products.php" class="cta-button secondary">Browse Products</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Visit Us</h3>
+                    <div class="info-item">
+                        <p><strong>Address:</strong> Dakshin Jharalta, Doukimari, Dhupguri, Jalpaiguri, Pin:736165</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Phone:</strong> +91 85097 70548</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Email:</strong> info@hardwarehaven.com</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Hours:</strong><br>Mon-Fri: 8AM - 6PM<br>Sat: 9AM - 5PM<br>Sun: Closed</p>
+                    </div>
+                    <div class="map-placeholder">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14658.47854283018!2d88.93546!3d26.63428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1694451254347!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form-section">
+                    <h3 id="contact-form"><i class="fas fa-paper-plane"></i> Send Us a Message</h3>
+                    <p>Fill out the form below, and we'll get back to you as soon as possible.</p>
+                    <form class="contact-form" id="contact-form-submit" onsubmit="handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Name:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject"><i class="fas fa-subject"></i> Subject:</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="inquiry">General Inquiry</option>
+                                <option value="products">Product Questions</option>
+                                <option value="services">Services</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Message:</label>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us more about your inquiry..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="cart-modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>Your Cart</h2>
+            <div id="cart-items" class="cart-items"></div>
+            <div class="cart-total">
+                <p>Total: ₹<span id="cart-total">0.00</span></p>
+            </div>
+            <div class="cart-actions">
+                <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
+                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Hardware Haven</h3>
+                    <p>Your local hardware experts since 2005.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="about.php">About</a></li>
+                        <li><a href="products.php">Products</a></li>
+                        <li><a href="contact.php">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>Dakshin Jharalta<br>Doukimari, Dhupguri<br>Phone: +91 85097 70548</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Hardware Haven. All rights reserved. | Designed with care for quality hardware solutions.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
