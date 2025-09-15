@@ -582,6 +582,7 @@ body {
 }
 
 .about-section {
+    margin-top: 2rem;
     background: #fff;
     padding: 2.5rem;
     border-radius: 15px;
@@ -1774,3 +1775,4 @@ body {
         border: 2px solid #000;
     }
 }
+
