@@ -211,7 +211,7 @@ body {
     background: linear-gradient(135deg, #525d73 0%, #495362 100%);
     color: #fff;
     text-align: center;
-    padding: 4rem 1rem 5rem;
+    padding: 3rem 1rem 5rem;
     position: relative;
     overflow: hidden;
 }
@@ -1280,4 +1280,5 @@ body {
     }
 
 }
+
 
