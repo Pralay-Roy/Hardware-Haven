@@ -17,6 +17,16 @@ body {
     overflow-x: hidden;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    margin-top: -1rem; /* Adjust this value to fine-tune if needed */
+    padding-top: 0;
+}
+
 /* Navigation */
 .navbar {
     background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
@@ -201,7 +211,7 @@ body {
     background: linear-gradient(135deg, #525d73 0%, #495362 100%);
     color: #fff;
     text-align: center;
-    padding: 2rem 1rem 5rem;
+    padding: 4rem 1rem 5rem;
     position: relative;
     overflow: hidden;
 }
@@ -1267,4 +1277,5 @@ body {
     .cta-button {
         border: 2px solid #000;
     }
+
 }
