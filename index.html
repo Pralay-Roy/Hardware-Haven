@@ -179,15 +179,17 @@
     <!-- Cart Modal -->
     <div id="cart-modal" class="modal">
         <div class="cart-modal-content">
-            <span class="close" onclick="closeCart()">&times;</span>
-            <h2>Your Cart</h2>
+            <span class="modal-close" onclick="closeCart()">&times;</span>
+            <h2>Your Cart (<span id="cart-item-count">0</span>)</h2>
             <div id="cart-items" class="cart-items"></div>
             <div class="cart-total">
-                <p>Total: ₹<span id="cart-total">0.00</span></p>
+                <p>Subtotal: ₹<span id="cart-total">0.00</span></p>
+                <p>Shipping: Free</p>
+                <p>Total: ₹<span id="grand-total">0.00</span></p>
             </div>
             <div class="cart-actions">
                 <button class="clear-cart" onclick="clearCart()">Clear Cart</button>
-                <button class="checkout-btn" onclick="checkout()">Checkout</button>
+                <button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
             </div>
         </div>
     </div>
@@ -199,6 +201,7 @@
             <div id="modal-content" class="modal-body"></div>
         </div>
     </div>
+
 
     <footer class="footer">
         <div class="container">
@@ -239,5 +242,6 @@
 </body>
 
 </html>
+
 
 
